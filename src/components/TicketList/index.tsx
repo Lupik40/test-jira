@@ -15,25 +15,19 @@ const TicketList = () => {
     dispatch(loadTodosAll());
   }, [dispatch]);
 
-  const sortForStatus = (firstItem: ITodo, secondItem: ITodo): number => {
-    const firstComp = firstItem.completed;
-    const secComp = secondItem.completed;
-
-    if (firstComp === "Done" && secComp === "In Proggress") {
-      return 1;
-    } else if (firstComp === "In Proggress" && secComp === "To do") {
-      return 1;
-    } else if (firstComp === "Done" && secComp === "To do") {
-      return 1;
-    }
-
-    return -1;
+  const todoSort = {
+    "To do": 0,
+    "In Proggress": 1,
+    "Done": 2,
   };
+
+  const sortTodos = (a: ITodo, b: ITodo) =>
+    todoSort[a.completed] - todoSort[b.completed];
 
   return (
     <div className="ticket-list">
       {todosList.length > 0 ? (
-        <TodosList list={todosList.sort(sortForStatus)} type="main" />
+        <TodosList list={todosList.sort(sortTodos)} type="main" />
       ) : (
         <Loader />
       )}
