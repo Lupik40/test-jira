@@ -1,0 +1,39 @@
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px 35px;
+  border: 1px solid #333333;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: rgb(233, 231, 231);
+    transition: background 0.3s ease;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 90px;
+    font-size: 36px;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  &__title {
+    margin-left: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+  }
+
+  &__completed {
+    margin-left: auto;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
